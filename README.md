@@ -130,15 +130,14 @@ const image = sharp("image.png");
 const controlNetUnit = new ControlNetUnit({
   model: "control_sd15_depth [fef5e48e]",
   module: "depth",
-  input_images: [image],
+  image: [image],
   processor_res: 512,
   threshold_a: 64,
   threshold_b: 64,
 });
 
 const result = await api.txt2img({
-  prompt:
-    "Young lad laughing at all artists putting hard work and effort into their work.",
+  prompt: "Young lad laughing at all artists putting hard work and effort into their work.",
   controlnet_units: [controlNetUnit],
 });
 

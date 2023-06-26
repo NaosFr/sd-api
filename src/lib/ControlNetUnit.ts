@@ -10,7 +10,7 @@ import { toBase64 } from "../utils/base64";
  * const image = sharp("image.png");
  *
  * const unit = new ControlNetUnit({
- *   input_image: image,
+ *   image: image,
  *   module: "depth",
  *   model: "depth",
  * });
@@ -27,10 +27,10 @@ export class ControlNetUnit {
   constructor(public config: ControlNetUnitConfig) {}
 
   async toJson() {
-    const input_image = await toBase64(this.config.input_image);
+    const image = await toBase64(this.config.image);
     const mask = this.config.mask && (await toBase64(this.config.mask));
     return {
-      input_image,
+      image,
       mask,
       module: this.config.module ?? "none",
       model: this.config.model ?? "None",

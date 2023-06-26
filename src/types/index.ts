@@ -277,7 +277,7 @@ export type PromptStyle = {
 };
 
 export type ControlNetUnitConfig = {
-  input_image: Sharp;
+  image: Sharp;
   mask?: Sharp;
   module: ControlNetModule;
   model?: string;
